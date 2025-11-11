@@ -5,3 +5,7 @@ export interface ProductInterface {
   price: number,
   images: string[]
 }
+
+export interface ValuesContextInterface {
+  productList: ProductInterface[] | undefined
+}
