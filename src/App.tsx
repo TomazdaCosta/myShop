@@ -1,10 +1,11 @@
-import Teste from "./components/Teste"
+import { RouterProvider } from "react-router-dom"
 import MyShopContextProvider from "./context/MyShopContextProvider"
+import { router } from "./router"
 
 const App = () => {
   return (
     <MyShopContextProvider>
-      <Teste />
+      <RouterProvider router={router}/>
     </MyShopContextProvider>
   )
 }
