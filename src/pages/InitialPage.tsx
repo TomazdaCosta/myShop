@@ -7,6 +7,13 @@ const InitialPage = () => {
   return (
     <>
       <h1>Initial page</h1>
+      {productList?.map((product) => {
+        return (
+          <div key={product.id}>
+            {product.title}
+          </div>
+        )
+      })}
     </>
   )
 }

@@ -5,14 +5,14 @@ import type { ProductInterface, ValuesContextInterface } from '../interfaces/int
 const MyShopContextProvider = ({children}: React.PropsWithChildren) => {
   const [productList, setProductList] = React.useState<ProductInterface[]>()
 
-  async function fetchProducts() {
-    const response = await fetch('https://dummyjson.com/products')
-    const data = await response.json()
-
-    setProductList(data?.products)
-  }
-
   React.useEffect(() => {
+    async function fetchProducts() {
+      const response = await fetch('https://dummyjson.com/products')
+      const data = await response.json()
+
+      setProductList(data?.products)
+    }
+
     fetchProducts()
   }, [])
 
