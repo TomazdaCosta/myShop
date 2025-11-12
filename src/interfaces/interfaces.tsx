@@ -13,4 +13,3 @@ export interface ValuesContextInterface {
 }
 
 export type RootStateFunc = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
