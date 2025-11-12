@@ -1,6 +1,10 @@
+import React from 'react'
 import type { ProductInterface } from '../interfaces/interfaces'
+import MyShopContext from '../context/MyShopContext'
 
-const ProductCard = ({ title, price, images, description  }: ProductInterface) => {
+const ProductCard = ({ id, title, price, images, description  }: ProductInterface) => {
+  const { addProductToCart } = React.useContext(MyShopContext)
+
   return (
     <div>
       <div>
@@ -11,7 +15,7 @@ const ProductCard = ({ title, price, images, description  }: ProductInterface) =
         <h2>{title}</h2>
         <p>$ {price}</p>
 
-        <button>Add to cart</button>
+        <button onClick={() => addProductToCart(id)}>Add to cart</button>
       </div>
     </div>
   )
