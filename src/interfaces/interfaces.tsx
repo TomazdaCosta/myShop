@@ -1,3 +1,5 @@
+import type store from "../store/myShopStoreConfig"
+
 export interface ProductInterface {
   id: string,
   title: string,
@@ -9,3 +11,6 @@ export interface ProductInterface {
 export interface ValuesContextInterface {
   productList: ProductInterface[] | undefined
 }
+
+export type RootStateFunc = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch

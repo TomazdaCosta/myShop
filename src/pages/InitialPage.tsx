@@ -1,8 +1,7 @@
-import React from 'react'
-import MyShopContext from '../context/MyShopContext'
+import { useAppSelector } from '../hooks/useAppSelector'
 
 const InitialPage = () => {
-  const { productList } = React.useContext(MyShopContext)
+  const productList = useAppSelector((state) => state.myShopStore.products)
 
   return (
     <>
