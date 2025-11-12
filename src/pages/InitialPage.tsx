@@ -1,3 +1,4 @@
+import ProductCard from '../components/ProductCard'
 import { useAppSelector } from '../hooks/useAppSelector'
 
 const InitialPage = () => {
@@ -9,7 +10,7 @@ const InitialPage = () => {
       {productList?.map((product) => {
         return (
           <div key={product.id}>
-            {product.title}
+            <ProductCard title={product.title} price={product.price} images={product.images} description={product.description} />
           </div>
         )
       })}

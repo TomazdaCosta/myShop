@@ -1,11 +1,11 @@
 import type store from "../store/myShopStoreConfig"
 
 export interface ProductInterface {
-  id: string,
-  title: string,
-  description: string,
-  price: number,
-  images: string[]
+  id?: string,
+  title?: string,
+  description?: string,
+  price?: number,
+  images?: string[]
 }
 
 export interface ValuesContextInterface {
