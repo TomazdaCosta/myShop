@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { ProductInterface } from "../interfaces/interfaces";
+import type { InitialStateInterface } from "../interfaces/interfaces";
 
-const initialState = {
-  products: [] as ProductInterface[],
-  cart: [] as ProductInterface[]
+const initialState: InitialStateInterface = {
+  products: [],
+  cart: []
 }
 
 const slice = createSlice({
@@ -14,8 +14,27 @@ const slice = createSlice({
       state.products = action.payload
     },
     addToCart(state, action) {
-      state.cart = state.products.filter((product) => product.id === action.payload)
-    }
+      const productAdd = state.products.find((product) => product.id === action.payload)
+
+      let exist: boolean = false
+      function existProduct() {
+        state.cart.forEach((product) => {
+          if(product.id === action.payload) {
+            exist = true
+          } else {
+            exist = false
+          }
+        })
+      }
+
+      if(productAdd) {
+        existProduct()
+
+        if(exist === false) {
+          state.cart.push(productAdd)
+        }
+      }
+    },
   }
 })
 

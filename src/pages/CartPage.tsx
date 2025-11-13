@@ -1,3 +1,4 @@
+import CartCard from '../components/CartCard'
 import Nav from '../components/Nav'
 import { useAppSelector } from '../hooks/useAppSelector'
 
@@ -7,6 +8,13 @@ const CartPage = () => {
   return (
     <>
       <Nav />
+      {cartList?.map(({ id, title, price, images, description }) => {
+        return (
+          <div key={id}>
+            <CartCard id={id} title={title} price={price} images={images} description={description} />
+          </div>
+        )
+      })}
     </>
   )
 }
