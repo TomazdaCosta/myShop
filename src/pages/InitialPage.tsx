@@ -1,3 +1,4 @@
+import Nav from '../components/Nav'
 import ProductCard from '../components/ProductCard'
 import { useAppSelector } from '../hooks/useAppSelector'
 
@@ -6,7 +7,7 @@ const InitialPage = () => {
 
   return (
     <>
-      <h1>Initial page</h1>
+      <Nav />
       {productList?.map((product) => {
         return (
           <div key={product.id}>
