@@ -1,5 +1,7 @@
 import type store from "../store/myShopStoreConfig"
 
+export type RootStateFunc = ReturnType<typeof store.getState>
+
 export interface ProductInterface {
   id: string,
   title: string,
@@ -16,5 +18,3 @@ export interface InitialStateInterface {
   products: ProductInterface[]
   cart: ProductInterface[]
 }
-
-export type RootStateFunc = ReturnType<typeof store.getState>
