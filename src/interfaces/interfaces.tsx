@@ -10,11 +10,15 @@ export interface ProductInterface {
   images: string[]
 }
 
+export interface CartInterface extends ProductInterface {
+  quantity: number
+}
+
 export interface ValuesContextInterface {
   addProductToCart: (id: string) => void
 }
 
 export interface InitialStateInterface {
   products: ProductInterface[]
-  cart: ProductInterface[]
+  cart: CartInterface[]
 }
