@@ -8,10 +8,10 @@ const CartPage = () => {
   return (
     <>
       <Nav />
-      {cartList?.map(({ id, title, price, images, description }) => {
+      {cartList?.map(({ id, title, price, images, description, quantity }) => {
         return (
           <div key={id}>
-            <CartCard id={id} title={title} price={price} images={images} description={description} />
+            <CartCard id={id} title={title} price={price} images={images} description={description} quantity={quantity} />
           </div>
         )
       })}

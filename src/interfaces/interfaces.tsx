@@ -7,11 +7,8 @@ export interface ProductInterface {
   title: string,
   description: string,
   price: number,
-  images: string[]
-}
-
-export interface CartInterface extends ProductInterface {
-  quantity: number
+  images: string[],
+  quantity?: number
 }
 
 export interface ValuesContextInterface {
@@ -20,5 +17,5 @@ export interface ValuesContextInterface {
 
 export interface InitialStateInterface {
   products: ProductInterface[]
-  cart: CartInterface[]
+  cart: ProductInterface[]
 }

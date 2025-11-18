@@ -1,6 +1,6 @@
 import type { ProductInterface } from '../interfaces/interfaces'
 
-const CartCard = ({ id, title, price, images, description  }: ProductInterface) => {
+const CartCard = ({ id, title, price, images, description, quantity  }: ProductInterface) => {
   return (
     <>
       <div>
@@ -16,7 +16,7 @@ const CartCard = ({ id, title, price, images, description  }: ProductInterface) 
 
           <div>
             <button>+</button>
-            <span>0</span>
+            <span>{quantity}</span>
             <button>-</button>
           </div>
         </div>

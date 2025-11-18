@@ -30,6 +30,8 @@ const slice = createSlice({
       if(productAdd) {
         existProduct()
 
+        productAdd.quantity = 0
+
         if(exist === false) {
           state.cart.push(productAdd)
         }
