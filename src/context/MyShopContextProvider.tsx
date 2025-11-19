@@ -1,10 +1,11 @@
 import React from 'react'
 import MyShopContext from './MyShopContext'
 import type { ValuesContextInterface } from '../interfaces/interfaces'
-import { addToCart, initialFetch } from '../store/myShopStore'
+import { addToCart, deleteToCart, initialFetch } from '../store/myShopStore'
 import { useDispatch } from 'react-redux'
 
 const MyShopContextProvider = ({children}: React.PropsWithChildren) => {
+  const [productIdDelete, setProductIdDelete] = React.useState<string>('')
   const dispatch = useDispatch()
 
   async function fetchProducts() {
@@ -18,12 +19,17 @@ const MyShopContextProvider = ({children}: React.PropsWithChildren) => {
     fetchProducts()
   }, [])
 
+  React.useEffect(() => {
+    dispatch(deleteToCart(productIdDelete))
+  }, [productIdDelete])
+
   const addProductToCart = (id: string) => {
     dispatch(addToCart(id))
   }
 
   const valuesContext: ValuesContextInterface = {
-    addProductToCart
+    addProductToCart,
+    setProductIdDelete
   }
 
   return (

@@ -37,8 +37,11 @@ const slice = createSlice({
         }
       }
     },
+    deleteToCart(state, action) {
+      state.cart = state.cart.filter((product) => product.id !== action.payload)
+    }
   }
 })
 
 export default slice.reducer
-export const { initialFetch, addToCart } = slice.actions
+export const { initialFetch, addToCart, deleteToCart } = slice.actions

@@ -12,7 +12,8 @@ export interface ProductInterface {
 }
 
 export interface ValuesContextInterface {
-  addProductToCart: (id: string) => void
+  addProductToCart: (id: string) => void,
+  setProductIdDelete: React.Dispatch<React.SetStateAction<string>>
 }
 
 export interface InitialStateInterface {

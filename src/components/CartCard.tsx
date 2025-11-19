@@ -1,6 +1,10 @@
+import React from 'react'
 import type { ProductInterface } from '../interfaces/interfaces'
+import MyShopContext from '../context/MyShopContext'
 
 const CartCard = ({ id, title, price, images, description, quantity  }: ProductInterface) => {
+  const { setProductIdDelete } = React.useContext(MyShopContext)
+
   return (
     <>
       <div>
@@ -12,7 +16,7 @@ const CartCard = ({ id, title, price, images, description, quantity  }: ProductI
         <p>$ {price}</p>
 
         <div>
-          <button>Delete</button>
+          <button onClick={() => setProductIdDelete(id)}>Delete</button>
 
           <div>
             <button>+</button>
