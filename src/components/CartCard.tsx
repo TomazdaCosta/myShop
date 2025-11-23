@@ -3,7 +3,7 @@ import type { ProductInterface } from '../interfaces/interfaces'
 import MyShopContext from '../context/MyShopContext'
 
 const CartCard = ({ id, title, price, images, description, quantity  }: ProductInterface) => {
-  const { setProductIdDelete } = React.useContext(MyShopContext)
+  const { setProductIdDelete, changeQuantity } = React.useContext(MyShopContext)
 
   return (
     <>
@@ -19,9 +19,9 @@ const CartCard = ({ id, title, price, images, description, quantity  }: ProductI
           <button onClick={() => setProductIdDelete(id)}>Delete</button>
 
           <div>
-            <button>+</button>
+            <button onClick={() => changeQuantity(id, 'sub')}>-</button>
             <span>{quantity}</span>
-            <button>-</button>
+            <button onClick={() => changeQuantity(id, 'add')}>+</button>
           </div>
         </div>
       </div>
