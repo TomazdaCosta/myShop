@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import CartCard from '../components/CartCard'
 import Nav from '../components/Nav'
 import { useAppSelector } from '../hooks/useAppSelector'
@@ -15,6 +16,9 @@ const CartPage = () => {
           </div>
         )
       })}
+      <div>
+        <Link to='/finalize'>Finalize order</Link>
+      </div>
     </>
   )
 }
