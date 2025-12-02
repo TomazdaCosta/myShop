@@ -2,6 +2,7 @@ import { createHashRouter } from "react-router-dom";
 import InitialPage from "./pages/InitialPage";
 import CartPage from "./pages/CartPage";
 import FinalizeOrder from "./pages/FinalizeOrder";
+import OrdersPage from "./pages/OrdersPage";
 
 export const router = createHashRouter([
   {
@@ -16,5 +17,9 @@ export const router = createHashRouter([
   {
     path: '/finalize',
     element: <FinalizeOrder />
+  },
+  {
+    path: '/orders',
+    element: <OrdersPage />
   }
 ])

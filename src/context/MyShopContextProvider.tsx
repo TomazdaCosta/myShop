@@ -36,10 +36,10 @@ const MyShopContextProvider = ({children}: React.PropsWithChildren) => {
 
   const addNewOrder = () => {
     orderInfo.products = cartList
+    orderInfo.id = Math.floor(Math.random() * 1000)
     dispatch(addOrder(orderInfo))
     setOrderInfo({} as OrderInfoInterface)
     dispatch(cleanCart())
-    console.log(orderInfo)
   }
 
   const valuesContext: ValuesContextInterface = {

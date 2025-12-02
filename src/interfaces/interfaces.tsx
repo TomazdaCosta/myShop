@@ -27,6 +27,7 @@ export interface InitialStateInterface {
 
 export interface OrderInfoInterface {
   products: ProductInterface[],
+  id: number,
   name: string,
   email: string,
   road: string,

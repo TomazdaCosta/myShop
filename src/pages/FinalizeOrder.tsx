@@ -101,7 +101,7 @@ const FinalizeOrder = () => {
         <label htmlFor="credit">Credit card</label>
       </form>
 
-      <button onClick={() => addNewOrder()}>Finalize</button>
+      <button onClick={() => addNewOrder()}><Link to='/orders'>Finalize</Link></button>
     </>
   )
 }
