@@ -14,10 +14,25 @@ export interface ProductInterface {
 export interface ValuesContextInterface {
   addProductToCart: (id: string) => void,
   setProductIdDelete: React.Dispatch<React.SetStateAction<string>>,
-  changeQuantity: (id: string, type: string) => void
+  changeQuantity: (id: string, type: string) => void,
+  setOrderInfo: React.Dispatch<React.SetStateAction<OrderInfoInterface>>,
+  addNewOrder: () => void
 }
 
 export interface InitialStateInterface {
   products: ProductInterface[]
-  cart: ProductInterface[]
+  cart: ProductInterface[],
+  order: OrderInfoInterface[]
+}
+
+export interface OrderInfoInterface {
+  products: ProductInterface[],
+  name: string,
+  email: string,
+  road: string,
+  neighborhood: string,
+  number: string,
+  city: string,
+  state: string,
+  payment: string
 }

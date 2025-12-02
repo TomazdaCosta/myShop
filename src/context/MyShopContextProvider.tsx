@@ -1,12 +1,15 @@
 import React from 'react'
 import MyShopContext from './MyShopContext'
-import type { ValuesContextInterface } from '../interfaces/interfaces'
-import { addToCart, changeQuantityToProduct, deleteToCart, initialFetch } from '../store/myShopStore'
+import type { OrderInfoInterface, ValuesContextInterface } from '../interfaces/interfaces'
+import { addOrder, addToCart, changeQuantityToProduct, cleanCart, deleteToCart, initialFetch } from '../store/myShopStore'
 import { useDispatch } from 'react-redux'
+import { useAppSelector } from '../hooks/useAppSelector'
 
 const MyShopContextProvider = ({children}: React.PropsWithChildren) => {
   const [productIdDelete, setProductIdDelete] = React.useState<string>('')
+  const [orderInfo, setOrderInfo] = React.useState<OrderInfoInterface>({} as OrderInfoInterface)
   const dispatch = useDispatch()
+  const cartList = useAppSelector((state) => state.myShopStore.cart)
 
   async function fetchProducts() {
     const response = await fetch('https://dummyjson.com/products')
@@ -31,10 +34,20 @@ const MyShopContextProvider = ({children}: React.PropsWithChildren) => {
     dispatch(changeQuantityToProduct({id, type}))
   }
 
+  const addNewOrder = () => {
+    orderInfo.products = cartList
+    dispatch(addOrder(orderInfo))
+    setOrderInfo({} as OrderInfoInterface)
+    dispatch(cleanCart())
+    console.log(orderInfo)
+  }
+
   const valuesContext: ValuesContextInterface = {
     addProductToCart,
     setProductIdDelete,
-    changeQuantity
+    changeQuantity,
+    setOrderInfo,
+    addNewOrder
   }
 
   return (

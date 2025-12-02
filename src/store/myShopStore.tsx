@@ -3,7 +3,8 @@ import type { InitialStateInterface } from "../interfaces/interfaces";
 
 const initialState: InitialStateInterface = {
   products: [],
-  cart: []
+  cart: [],
+  order: []
 }
 
 const slice = createSlice({
@@ -48,9 +49,15 @@ const slice = createSlice({
       } if (product && action.payload.type === 'sub' && product.quantity > 1) {
         product.quantity -= 1
       }
+    },
+    addOrder(state, action) {
+      state.order.push(action.payload)
+    },
+    cleanCart(state) {
+      state.cart = []
     }
   }
 })
 
 export default slice.reducer
-export const { initialFetch, addToCart, deleteToCart, changeQuantityToProduct } = slice.actions
+export const { initialFetch, addToCart, deleteToCart, changeQuantityToProduct, addOrder, cleanCart } = slice.actions
