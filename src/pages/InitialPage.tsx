@@ -8,10 +8,10 @@ const InitialPage = () => {
   return (
     <>
       <Nav />
-      {productList?.map(({ id, title, price, images, description }) => {
+      {productList?.map(({ id, title, price, images, description, quantity }) => {
         return (
           <div key={id}>
-            <ProductCard id={id} title={title} price={price} images={images} description={description} />
+            <ProductCard id={id} title={title} price={price} images={images} description={description} quantity={quantity} />
           </div>
         )
       })}

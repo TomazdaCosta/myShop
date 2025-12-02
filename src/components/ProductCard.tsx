@@ -2,13 +2,13 @@ import React from 'react'
 import type { ProductInterface } from '../interfaces/interfaces'
 import MyShopContext from '../context/MyShopContext'
 
-const ProductCard = ({ id, title, price, images, description  }: ProductInterface) => {
+const ProductCard = ({ id, title, price, images, description, quantity  }: ProductInterface) => {
   const { addProductToCart } = React.useContext(MyShopContext)
 
   return (
     <div>
       <div>
-        <img src={images?.[0]} alt={description} style={{maxWidth: '10rem'}} />
+        <img src={images?.[0]} alt={description + quantity} style={{maxWidth: '10rem'}} />
       </div>
 
       <div>
