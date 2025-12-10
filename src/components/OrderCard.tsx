@@ -25,6 +25,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
 
                   <div>
                     <p>{product.quantity} units</p>
+                    <p></p>
                   </div>
                 </div>
               )
