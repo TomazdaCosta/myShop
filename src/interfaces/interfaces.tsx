@@ -37,3 +37,7 @@ export interface OrderInfoInterface {
   state: string,
   payment: string
 }
+
+export interface OrderCardProps {
+  order: OrderInfoInterface
+}
