@@ -8,6 +8,7 @@ import { useAppSelector } from '../hooks/useAppSelector'
 const MyShopContextProvider = ({children}: React.PropsWithChildren) => {
   const [productIdDelete, setProductIdDelete] = React.useState<string>('')
   const [orderInfo, setOrderInfo] = React.useState<OrderInfoInterface>({} as OrderInfoInterface)
+  const [totalOrder, setTotalOrder] = React.useState<number>(0)
   const dispatch = useDispatch()
   const cartList = useAppSelector((state) => state.myShopStore.cart)
 
@@ -26,6 +27,13 @@ const MyShopContextProvider = ({children}: React.PropsWithChildren) => {
     dispatch(deleteToCart(productIdDelete))
   }, [productIdDelete])
 
+  React.useEffect(() => {
+    cartList.forEach(({ price, quantity }) => {
+      const total = price * quantity
+      setTotalOrder((value) => value += total)
+    })
+  }, [cartList])
+
   const addProductToCart = (id: string) => {
     dispatch(addToCart(id))
   }
@@ -37,8 +45,10 @@ const MyShopContextProvider = ({children}: React.PropsWithChildren) => {
   const addNewOrder = () => {
     orderInfo.products = cartList
     orderInfo.id = Math.floor(Math.random() * 1000)
+    orderInfo.total = totalOrder
     dispatch(addOrder(orderInfo))
     setOrderInfo({} as OrderInfoInterface)
+    setTotalOrder(0)
     dispatch(cleanCart())
   }
 
@@ -47,7 +57,10 @@ const MyShopContextProvider = ({children}: React.PropsWithChildren) => {
     setProductIdDelete,
     changeQuantity,
     setOrderInfo,
-    addNewOrder
+    orderInfo,
+    addNewOrder,
+    totalOrder,
+    setTotalOrder
   }
 
   return (

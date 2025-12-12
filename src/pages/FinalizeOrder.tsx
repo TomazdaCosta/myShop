@@ -4,7 +4,7 @@ import MyShopContext from '../context/MyShopContext'
 
 
 const FinalizeOrder = () => {
-  const { setOrderInfo, addNewOrder } = React.useContext(MyShopContext)
+  const { setOrderInfo, addNewOrder, orderInfo } = React.useContext(MyShopContext)
 
   return (
     <>
@@ -101,7 +101,8 @@ const FinalizeOrder = () => {
         <label htmlFor="credit">Credit card</label>
       </form>
 
-      <button onClick={() => addNewOrder()}><Link to='/orders'>Finalize</Link></button>
+      {orderInfo.city && orderInfo.email && orderInfo.name && orderInfo.neighborhood && orderInfo.number && orderInfo.payment && orderInfo.road && orderInfo.state && <button onClick={() => addNewOrder()}><Link to='/orders'>Finalize</Link></button>}
+      
     </>
   )
 }

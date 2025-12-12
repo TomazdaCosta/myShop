@@ -16,7 +16,10 @@ export interface ValuesContextInterface {
   setProductIdDelete: React.Dispatch<React.SetStateAction<string>>,
   changeQuantity: (id: string, type: string) => void,
   setOrderInfo: React.Dispatch<React.SetStateAction<OrderInfoInterface>>,
-  addNewOrder: () => void
+  orderInfo: OrderInfoInterface,
+  addNewOrder: () => void,
+  totalOrder: number,
+  setTotalOrder: React.Dispatch<React.SetStateAction<number>>
 }
 
 export interface InitialStateInterface {
@@ -35,7 +38,8 @@ export interface OrderInfoInterface {
   number: string,
   city: string,
   state: string,
-  payment: string
+  payment: string,
+  total: number
 }
 
 export interface OrderCardProps {

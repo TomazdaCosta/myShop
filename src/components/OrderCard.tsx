@@ -8,7 +8,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
         <div>
           <h2>Order {order.id}</h2>
 
-          <span>value</span>
+          <span>Total value ${order.total}</span>
         </div>
 
         <div>
@@ -25,7 +25,6 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
 
                   <div>
                     <p>{product.quantity} units</p>
-                    <p></p>
                   </div>
                 </div>
               )
